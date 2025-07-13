@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+</head>
+<body>
+  <h2>Signup</h2>
+  <form action="register.php" method="post">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Mobile Number:</label><br>
+    <input type="text" name="mobile" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" id="password" required><br><br>
+
+    <label>Confirm Password:</label><br>
+    <input type="password" id="confirm_password" required><br><br>
+
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+      const pass = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm_password').value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

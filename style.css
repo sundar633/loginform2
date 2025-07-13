@@ -1,0 +1,128 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: backgroundFade 3s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundFade {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+.container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  animation: bounceIn 0.6s ease-out;
+  transform-origin: center;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(50px);
+  }
+  60% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  80% {
+    transform: scale(0.98) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.15);
+}
+
+button {
+  background-color: #2575fc;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a5ed9;
+  transform: scale(1.02);
+}
+
+.switch-link {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.switch-link a {
+  color: #2575fc;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 30px 20px;
+    margin: 20px;
+    border-radius: 12px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+}

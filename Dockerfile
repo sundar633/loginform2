@@ -1,14 +1,19 @@
-# Use official PHP Apache image
+# Use PHP 8.2 with Apache
 FROM php:8.2-apache
 
-# Enable mod_rewrite (if you want .htaccess)
+# Enable Apache modules
 RUN a2enmod rewrite
 
-# Set working directory
-WORKDIR /var/www/html
+# ✅ Install PostgreSQL PDO driver
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo_pgsql pgsql
 
-# Copy all your project files to container
+# Optional: suppress ServerName warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Set working directory and copy code
+WORKDIR /var/www/html
 COPY . .
 
-# Optional: Give permissions to Apache
+# Set file permissions
 RUN chown -R www-data:www-data /var/www/html
